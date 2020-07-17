@@ -4,72 +4,154 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".MainActivity">
 
     <TimePicker
         android:id="@+id/simpleTimePicker"
         android:layout_width="334dp"
         android:layout_height="201dp"
+        android:theme="@style/MyTimePicker"
         android:layout_centerHorizontal="true"
-
+        android:layout_marginTop="25px"
+        android:layout_marginBottom="25px"
         android:timePickerMode="spinner" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:layout_above="@id/onOff"
+        android:layout_centerHorizontal="true"
+        android:text="On / Off"
+    />
 
     <ToggleButton
         android:id="@+id/onOff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ToggleButton"
-
         android:layout_below="@+id/simpleTimePicker"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_border"
+        android:textColor="#000000"
+        android:layout_marginBottom="50px"/>
+
+    <TextView
+        android:id="@id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No alarm"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/onOff"
+        android:layout_marginBottom="50px"
+        />
 
     <Button
-        android:id="@+id/snooze1"
-        android:layout_width="wrap_content"
+        android:id="@+id/snooze5"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/onOff"
-        android:layout_centerHorizontal="true"
-        android:text="Snooze 1 sec" />
+        android:layout_below="@id/text"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/button_border"
+        android:textColor="#FFFFFF"
+        android:text="Snooze\n5 min" />
 
     <Button
         android:id="@+id/snooze10"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/snooze1"
+        android:layout_below="@id/text"
         android:layout_centerHorizontal="true"
-        android:text="Snooze 10 sec" />
+        android:layout_marginBottom="50px"
+        android:background="@drawable/button_border"
+        android:textColor="#FFFFFF"
+        android:text="Snooze\n10 min" />
 
     <Button
         android:id="@+id/snooze15"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/snooze10"
-        android:layout_centerHorizontal="true"
-        android:text="Snooze 15 sec" />
+        android:layout_below="@id/text"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_border"
+        android:textColor="#FFFFFF"
+        android:text="Snooze\n15 min" />
 
     <Button
         android:id="@+id/snooze20"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/snooze15"
+        android:layout_below="@id/snooze10"
         android:layout_centerHorizontal="true"
-        android:text="Snooze 20 sec" />
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/button_border"
+        android:textColor="#FFFFFF"
+        android:text="Snooze\n20 min" />
+
+    <Button
+        android:id="@+id/snooze25"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/snooze10"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50px"
+        android:background="@drawable/button_border"
+        android:textColor="#FFFFFF"
+        android:text="Snooze\n25 min" />
 
     <Button
         android:id="@+id/snooze30"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/snooze20"
-        android:layout_centerHorizontal="true"
-        android:text="Snooze 30 sec" />
+        android:layout_below="@id/snooze10"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_border"
+        android:textColor="#FFFFFF"
+        android:text="Snooze\n30 min" />
 
     <Button
-        android:id="@+id/playTone"
+        android:id="@+id/snooze35"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/snooze25"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/button_border"
+        android:textColor="#FFFFFF"
+        android:text="Snooze\n35 min" />
+
+    <Button
+        android:id="@+id/snooze40"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/snooze25"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50px"
+        android:background="@drawable/button_border"
+        android:textColor="#FFFFFF"
+        android:text="Snooze\n40 min" />
+
+    <Button
+        android:id="@+id/snooze45"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/snooze25"
+        android:layout_alignParentRight="true"
+
+        android:background="@drawable/button_border"
+        android:textColor="#FFFFFF"
+        android:text="Snooze\n45 min" />
+
+    <Button
+        android:id="@+id/test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/snooze30"
+        android:layout_below="@id/snooze40"
         android:layout_centerHorizontal="true"
-        android:text="play sound" />
+        android:background="@drawable/button_border"
+        android:textColor="#FFFFFF"
+        android:text="Test (15 sec snooze)" />
 
 
 </RelativeLayout>
