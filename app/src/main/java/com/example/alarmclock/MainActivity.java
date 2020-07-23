@@ -1,7 +1,6 @@
 package com.example.alarmclock;
 import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -31,15 +30,13 @@ public class MainActivity extends AppCompatActivity {
     Button snooze35;
     Button snooze40;
     Button snooze45;
-    Button test;
     TextView text;
-
     Uri alarmTone;
     Ringtone ringtoneAlarm;
 
     final long minutes = 60 * 1000;//Used for snoozing, default delay = 1 minute
     final Handler handler = new Handler();
-    CountDownTimer countDownTimer;
+    CountDownTimer snoozeTimer;
 
     /*
     Snoozes the alarm. If a previous alarm or snooze was scheduled, it is replaced.
@@ -48,11 +45,11 @@ public class MainActivity extends AppCompatActivity {
     public void snooze(int n){
         ringtoneAlarm.stop();
         handler.removeCallbacksAndMessages(null);
-        if (countDownTimer != null){
-            countDownTimer.cancel();
+        if (snoozeTimer != null){
+            snoozeTimer.cancel();
         }
         Log.d(null, "onTick: " + (minutes*n));
-        countDownTimer = new CountDownTimer((minutes * n), 1000) {
+        snoozeTimer = new CountDownTimer((minutes * n), 1000) {
                 @Override
                 public void onTick(long l) {
                     text.setText(String.format("Snoozing for %d min, %02d sec",
@@ -65,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     text.setText("WAKE UP!!!");
                 }
             };
-        countDownTimer.start();
+        snoozeTimer.start();
         Toast toast = Toast.makeText(getApplicationContext(), "Snoozing for " + n + " minutes", Toast.LENGTH_SHORT);
         toast.show();
         onOff.setChecked(true);
@@ -103,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         snooze35 = (Button) findViewById(R.id.snooze35);
         snooze40 = (Button) findViewById(R.id.snooze40);
         snooze45 = (Button) findViewById(R.id.snooze45);
-        test = (Button) findViewById(R.id.test);//For testing purposes. Plays the default alarm sound
 
         /*
         Turns the alarm on/off. The time to wait before the alarm rings is derived from
@@ -114,8 +110,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!onOff.isChecked()){
-                    if (countDownTimer != null){
-                        countDownTimer.cancel();
+                    if (snoozeTimer != null){
+                        snoozeTimer.cancel();
                     }
                     ringtoneAlarm.stop();
                     onOff.setBackgroundColor(Color.RED);
@@ -127,14 +123,15 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     onOff.setText("ALARM SET");
                     onOff.setBackgroundColor(Color.GREEN);
-                    if (countDownTimer != null){
-                        countDownTimer.cancel();
+                    if (snoozeTimer != null){
+                        snoozeTimer.cancel();
                     }
                     Calendar c = Calendar.getInstance();
                     c.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
                     c.set(Calendar.MINUTE, timePicker.getMinute());
                     c.set(Calendar.SECOND, 0);
                     c.set(Calendar.MILLISECOND, 0);
+
                     //How long to wait until alarm sounds
                     long delay = (Long)(c.getTimeInMillis() - System.currentTimeMillis());
                     //If alarm is set for the next day (ie the time in the timePicker is earlier than currrent time)
@@ -142,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                         delay = 1000 * 60 * 60 * 24 + c.getTimeInMillis() - System.currentTimeMillis();
                     }
                     Log.d(null, "Delay = " + delay);
+
                     if (timePicker.getHour() == 0){
                         if (timePicker.getMinute() < 10){
                             Toast toast = Toast.makeText(getApplicationContext(),
@@ -270,13 +268,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 snooze((45));
-            }
-        });
-
-        test.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                snooze(1);
             }
         });
     }
