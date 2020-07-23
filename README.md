@@ -9,27 +9,27 @@ Alarm Clock is developed for Android versions **8.0** / API Level **26** and abo
 
 ## Home Screen / No Alarm Set
 
-[!alt text](screenshots/Alarm.png)
+[!alt text](Screenshots/Alarm.png)
 
 
 ## Setting the alarm
 
 Use the scroll-able time picker and the On/Off button to set the alarm.
 
-[!alt text](screenshots/Alarm Set.png)
+[!alt text](Screenshots/Alarm Set.png)
 
 ## Alarm Ringing
 
-[!alt text](screenshots/Alarm Ringing.png)
+[!alt text](Screenshots/Alarm Ringing.png)
 
 
 ## Snoozing the alarm
 When the alarm rings, press any of the snooze buttons to Snooze for the desired amount of time.  Alternatively, if the alarm is not set, the Snooze buttons can be used to quickly set an alarm.
 
-[!alt text](screenshots/Alarm Snooze.png)
+[!alt text](Screenshots/Alarm Snooze.png)
 
 ## Stopping the alarm
 Use the On/Off button to turn the alarm or snooze off.
 
-[!alt text](screenshots/Alarm Off.png)
+[!alt text](Screenshots/Alarm Off.png)
 
