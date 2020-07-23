@@ -142,5 +142,5 @@
         android:background="@drawable/button_border"
         android:textColor="#FFFFFF"
         android:text="Snooze\n45 min" />
-    
+
 </RelativeLayout>
